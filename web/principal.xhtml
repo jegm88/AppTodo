@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Principal</title>
+    </h:head>
+    <h:body>
+        <h:form id="frmTarea">
+            <h1><h:outputText value="Tareas de #{loginBean.usuario.nombres}"></h:outputText></h1>
+            <h:outputLabel value="Tarea: " for="txtTarea"/>
+            <h:inputText label="Tarea" id="txtTarea" value="#{tareaBean.tarea.actividad}" size="50"></h:inputText>
+            <h:selectBooleanCheckbox label="Estado" id="chkEstado" value="#{tareaBean.estado}"></h:selectBooleanCheckbox>
+            <h:commandButton action="#{tareaBean.guardar()}" id="lnkGuardar" value="Guardar">
+            </h:commandButton>
+
+            <h:dataTable value="#{tareaBean.tareas}" var="tarea" rendered="#{tareaBean.tareas.size()>0}">
+                <h:column>
+                    <f:facet name="header" >
+                        <h:outputText value="Estado"/>
+                    </f:facet>    
+                    <h:selectBooleanCheckbox value="#{tareaBean.parseEstadoTarea(tarea)}" disabled="true"></h:selectBooleanCheckbox>
+                </h:column>
+                <h:column>
+                    <f:facet name="header" >
+                        <h:outputText value="Tarea"/>
+                    </f:facet>    
+                    <h:outputText value="#{tarea.actividad}" />
+                </h:column>	
+                <h:column>
+                    <h:commandLink value="Modificar" 
+                                     action="#{tareaBean.mostrar()}">
+                        <f:setPropertyActionListener target="#{tareaBean.tarea}" value="#{tarea}"/>
+                    </h:commandLink>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="Borrar" 
+                                     action="#{tareaBean.eliminar()}">
+                        <f:setPropertyActionListener target="#{tareaBean.tarea}" value="#{tarea}"/>
+                    </h:commandLink>
+                </h:column>	
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
