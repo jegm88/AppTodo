@@ -17,5 +17,5 @@ Es una aplicación para el control de tareas o lista de quehaceres, que permite 
 >* Siéntete libre de modificar el código y distribuirlo.
 >* Si te sirve esparce la voz dile a todos donde lo conseguiste.
 >* Si lo vendes regálame una cerveza ;)
->* Sigueme en twitter => @jegm88
+>* Sigueme en twitter => [@jegm88](http://www.twitter.com/jegm88)
 >* Tienes recomendaciones o quejas => jegmgml@gmail.com (las quejas van para la carpeta de spam)
